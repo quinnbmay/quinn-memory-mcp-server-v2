@@ -29,9 +29,7 @@ class QuinnMemoryServer {
     this.redis = new Redis({
       host: process.env.DRAGONFLY_HOST || 'dragonflydb.railway.internal',
       port: parseInt(process.env.DRAGONFLY_PORT || '6379'),
-      // Fallback to in-memory if Redis unavailable
       lazyConnect: true,
-      retryDelayOnFailover: 100,
       maxRetriesPerRequest: 1,
     });
 
@@ -113,7 +111,7 @@ class QuinnMemoryServer {
     return {
       content: [
         {
-          type: "text",
+          type: "text" as const,
           text: `Memory added successfully for user ${userId}. Memory ID: ${memory.id}`,
         },
       ],
@@ -176,7 +174,7 @@ class QuinnMemoryServer {
     return {
       content: [
         {
-          type: "text",
+          type: "text" as const,
           text: `Found ${results.length} memories for query "${query}":
 
 ${results
