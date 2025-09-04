@@ -1,0 +1,28 @@
+{
+  "name": "quinn-memory-mcp-server",
+  "version": "1.0.0",
+  "description": "Quinn Memory MCP Server with HTTP transport for headless environments",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -f smithery.yaml && npx tsup",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": ["mcp", "memory", "server"],
+  "author": "Quinn May",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "@types/ioredis": "^4.28.10"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "fastify": "^4.28.0",
+    "@fastify/cors": "^8.4.0",
+    "zod": "^3.22.0",
+    "ioredis": "^5.3.2"
+  }
+}
